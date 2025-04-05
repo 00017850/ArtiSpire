@@ -1,0 +1,44 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    title #{title}
+
+    // Bootstrap CSS for a nice layout
+    link(
+      href='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css'
+      rel='stylesheet'
+      integrity='sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65'
+      crossorigin='anonymous'
+    )
+
+    // Font Awesome for icons like pencil, trash etc.
+    link(
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    )
+
+    // Include the Pacifico font link for headers only
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet")
+
+    // Your custom styles
+    link(rel='stylesheet' href='/css/styles.css')
+
+    // jQuery for scripting (optional, useful)
+    script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+
+    // Bootstrap JS for modals/buttons etc.
+    script(
+      src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js'
+      integrity='sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4'
+      crossorigin='anonymous'
+    )
+
+    // Axios if you want to make AJAX calls later
+    script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")
+
+    // Your custom JS
+    script(type='text/javascript' src='/js/scripts.js')

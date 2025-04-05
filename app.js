@@ -1,39 +1,29 @@
-// Import necessary modules
-const express = require('express');
-const body_parser = require('body-parser');
-const path = require('path');
+// express web app instance
+const express = require('express')
 
-// Initialize the Express app
-const app = express();
+// parse request body to json
+const body_parser = require('body-parser')
 
-// Middleware to parse incoming JSON request bodies
-app.use(body_parser.json());
+// for File IO
+const path = require('path')
 
-// Serve static files (optional)
-app.use(express.static(path.join(__dirname, 'public')));
+// for web routing
+const web_route = require('./routes/web') 
 
-// Global mock database path
+// make mock database (raw .json file) available globally in app
 global.mock_db = path.join(__dirname, './data/mock_db.json');
 
-// Define routes
+const app = express();
 
-// Home route
-app.get('/', function(req, res){
-    return res.json({ message: 'hello world' });
-});
+// Set the view engine for web routes
+app.set('view engine', 'pug');
 
-// Sample route to create an entry
-app.post('/create-entry', function(req, res) {
-    const { title, type, description, imageURL } = req.body;
-    
-    // You would typically add your logic to save this to your database here
-    res.json({ message: 'Entry created', title, type, description, imageURL });
-});
+app.use('/css', express.static('public/css'))
+app.use('/js', express.static('public/js'))
 
-// Add more routes here as needed for updating, deleting, etc.
+app.use('/', web_route); // web routes
 
-// Start the server
+app.use(express.static('public'));
+
 const port = 3000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
-
-
